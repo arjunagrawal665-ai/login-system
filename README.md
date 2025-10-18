@@ -1,33 +1,39 @@
-# Authentication System
+# 🔐 Complete Authentication System
 
-A complete full-stack authentication system built with Node.js, Express, MongoDB, and React. This project demonstrates user registration, login, JWT-based authentication, and protected routes.
+A full-stack authentication system built with React frontend and Node.js backend, featuring MongoDB integration, JWT authentication, and secure password hashing.
 
-## 🚀 Features
+## 🚀 Live Demo
 
-### Backend
+**Frontend:** http://localhost:3000  
+**Backend API:** http://localhost:5000
+
+## ✨ Features
+
+### 🔧 Backend Features
 - **User Registration & Login** with email validation
-- **Password Hashing** using bcryptjs
+- **Password Hashing** using bcryptjs with salt rounds
 - **JWT Token Authentication** with 1-hour expiration
 - **Protected Routes** with middleware authentication
 - **MongoDB Integration** with Mongoose ODM
 - **CORS Support** for frontend-backend communication
-- **Input Validation** and error handling
+- **Input Validation** and comprehensive error handling
 
-### Frontend
+### ⚛️ Frontend Features
 - **React Router** for client-side routing
 - **Protected Routes** that require authentication
 - **JWT Token Management** with localStorage
 - **Authentication Context** for global state management
-- **Responsive Design** with clean UI
+- **Responsive Design** with modern UI
 - **Real-time Authentication Status**
 
-## 📁 Project Structure
+## 🏗️ Project Structure
 
 ```
 ├── backend/
 │   ├── server.js              # Main server file
+│   ├── server-simple.js       # Database-free version
 │   ├── package.json           # Backend dependencies
-│   ├── .env.local            # Environment variables (create this)
+│   ├── .env.local            # Environment variables
 │   ├── config/
 │   │   └── db.js             # Database connection
 │   ├── models/
@@ -54,74 +60,49 @@ A complete full-stack authentication system built with Node.js, Express, MongoDB
 │   ├── public/
 │   │   └── index.html        # HTML template
 │   └── package.json          # Frontend dependencies
-└── README.md                 # This file
+├── package.json               # Main project configuration
+├── start.bat               # Windows startup script
+├── start.sh                # Unix startup script
+└── README.md               # This file
 ```
 
-## 🛠️ Setup Instructions
+## 🛠️ Quick Setup
 
 ### Prerequisites
 - Node.js (v14 or higher)
-- MongoDB Atlas account or local MongoDB instance
+- MongoDB Atlas account (or local MongoDB)
 - Git
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd auth-system
+git clone https://github.com/arjunagrawal665-ai/login-system.git
+cd login-system
 ```
 
-### 2. Backend Setup
-
-1. Navigate to the backend directory:
+### 2. Install Dependencies
 ```bash
-cd backend
+# Install all dependencies (backend + frontend)
+npm run install-all
 ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+### 3. Environment Setup
 
-3. Create environment file:
-```bash
-# Create .env.local file in the backend directory
-touch .env.local
-```
-
-4. Add your environment variables to `.env.local`:
+Create `backend/.env.local`:
 ```env
-MONGO_URI=mongodb+srv://your-username:your-password@cluster0.mongodb.net/auth-system?retryWrites=true&w=majority
-JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
+MONGO_URI=your-mongodb-connection-string
+JWT_SECRET=your-super-secret-jwt-key-here
 PORT=5000
 ```
 
-5. Start the backend server:
+### 4. Start the Application
 ```bash
-npm start
-# or for development with auto-reload:
-npm run dev
-```
-
-The backend will be running on `http://localhost:5000`
-
-### 3. Frontend Setup
-
-1. Navigate to the frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the frontend development server:
-```bash
+# Start both frontend and backend
 npm start
 ```
 
-The frontend will be running on `http://localhost:3000`
+### 5. Access the Application
+- **Frontend:** http://localhost:3000
+- **Backend API:** http://localhost:5000
 
 ## 🔧 API Endpoints
 
@@ -163,19 +144,6 @@ Login an existing user.
 }
 ```
 
-**Response:**
-```json
-{
-  "message": "Login successful",
-  "token": "jwt-token-here",
-  "user": {
-    "id": "user-id",
-    "name": "John Doe",
-    "email": "john@example.com"
-  }
-}
-```
-
 #### GET `/api/auth/me`
 Get current user information (requires authentication).
 
@@ -184,41 +152,8 @@ Get current user information (requires authentication).
 Authorization: Bearer <jwt-token>
 ```
 
-**Response:**
-```json
-{
-  "user": {
-    "id": "user-id",
-    "name": "John Doe",
-    "email": "john@example.com",
-    "createdAt": "2023-01-01T00:00:00.000Z",
-    "updatedAt": "2023-01-01T00:00:00.000Z"
-  }
-}
-```
-
-### Protected Routes
-
 #### GET `/api/protected`
 Example protected route (requires authentication).
-
-**Headers:**
-```
-Authorization: Bearer <jwt-token>
-```
-
-**Response:**
-```json
-{
-  "message": "Welcome to the protected route!",
-  "user": {
-    "id": "user-id",
-    "name": "John Doe",
-    "email": "john@example.com"
-  },
-  "timestamp": "2023-01-01T00:00:00.000Z"
-}
-```
 
 ## 🎯 Frontend Pages
 
@@ -311,4 +246,6 @@ This project is licensed under the MIT License.
 
 If you encounter any issues or have questions, please open an issue in the repository.
 
+---
 
+**Built with ❤️ by [Arjun Agrawal](https://github.com/arjunagrawal665-ai)**
