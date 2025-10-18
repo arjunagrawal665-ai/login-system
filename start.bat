@@ -1,0 +1,9 @@
+@echo off
+echo Starting Authentication System...
+echo.
+echo Installing all dependencies...
+call npm run install-all
+echo.
+echo Starting both frontend and backend...
+call npm start
+
